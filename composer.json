@@ -1,17 +1,5 @@
 {
-    "name": "botapi",
-    "type": "api",
-    "description": "Memory bot api",
-    "keywords": ["bot"],
-    "homepage": "",
-    "license": "",   
-    "authors": [
-        {
-            "name": "spica"
-        }
-    ],
-    "minimum-stability": "stable",
     "require": {
-        "predis/predis": "4.0.10"
+        "predis/predis": "^4.0"
     }
 }
