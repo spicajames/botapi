@@ -4,7 +4,7 @@
     "description": "Memory bot api",
     "keywords": ["bot"],
     "homepage": "",
-    "license": ""    
+    "license": "",   
     "authors": [
         {
             "name": "spica"
