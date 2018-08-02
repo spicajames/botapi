@@ -1,9 +1,16 @@
 <?php 
-$request = file_get_contents('php://input');
-$json = json_decode($request);
-$key = $json->queryResult->parameters->any;
 header('Content-type: application/json');
-?>
-{
-  "fulfillmentText": "You asked for <?php echo $key; ?>" 
+if($json = json_decode(file_get_contents("php://input"), true)) {
+     $data = $json;
+} else {
+     $data = $_POST;
+}
+$intent = $data->queryResult->intent->displayName;
+if($intent == "get"){
+  $key = $data->queryResult->parameters->any;
+  echo "{'fulfillmentText': 'You asked for $key'}";
+} else if($intent == "post"){
+  echo "{'fulfillmentText': 'Got it!'}";
+} else{
+  echo "{'fulfillmentText': 'I have no idea what your asking for'}";
 }
