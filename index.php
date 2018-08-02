@@ -1,6 +1,5 @@
 <?php 
-require "predis/autoload.php";
-PredisAutoloader::register();
+$redis = new Redis();
 
 header('Content-type: application/json');
 $data = json_decode(file_get_contents("php://input"));
