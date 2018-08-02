@@ -2,7 +2,6 @@
 header('Content-type: application/json');
 $data = json_decode(file_get_contents("php://input"));
 $intent = $data->queryResult->intent->displayName;
-var_dump($intent);
 if($intent == "get"){
   $key = $data->queryResult->parameters->any;
   echo "{'fulfillmentText': 'You asked for $key'}";
