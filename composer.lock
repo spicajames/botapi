@@ -2,6 +2,6 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "predis/predis": "4.*"
+        "predis/predis": "~4.*"
     }
 }
