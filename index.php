@@ -1,5 +1,5 @@
 <?php 
-$redis = new Redis();
+$redis = new Predis\Client(getenv('REDIS_URL'));
 
 header('Content-type: application/json');
 $data = json_decode(file_get_contents("php://input"));
