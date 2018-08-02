@@ -1,4 +1,7 @@
 <?php 
+require "predis/autoload.php";
+PredisAutoloader::register();
+
 header('Content-type: application/json');
 $data = json_decode(file_get_contents("php://input"));
 $intent = $data->queryResult->intent->displayName;
