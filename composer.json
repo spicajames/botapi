@@ -11,6 +11,6 @@
         }
     ],
     "require": {
-        "predis/predis": "1.0.3"
+        "predis/predis": "4.0.10"
     }
 }
