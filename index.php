@@ -1,6 +1,7 @@
 <?php 
-$redis = new Predis\Client(getenv('REDIS_URL'));
-
+//$redis = new Predis\Client(getenv('REDIS_URL'));
+$my_file = 'file.txt';
+$handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file); //implicitly creates file
 header('Content-type: application/json');
 $data = json_decode(file_get_contents("php://input"));
 $intent = $data->queryResult->intent->displayName;
