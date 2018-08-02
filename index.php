@@ -1,10 +1,6 @@
 <?php 
 header('Content-type: application/json');
-if($json = json_decode(file_get_contents("php://input"), true)) {
-     $data = $json;
-} else {
-     $data = $_POST;
-}
+$data = json_decode(file_get_contents("php://input");
 $intent = $data->queryResult->intent->displayName;
 var_dump($intent);
 if($intent == "get"){
