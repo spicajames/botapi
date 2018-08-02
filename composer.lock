@@ -1,4 +1,5 @@
 {
+    "minimum-stability": "stable",
     "require": {
         "predis/predis": "4.0.0-estable"
     }
