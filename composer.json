@@ -1,5 +1,5 @@
 {
     "require": {
-        "predis/predis": "4.0.*@dev"
+        "predis/predis": "4.0.0-estable"
     }
 }
