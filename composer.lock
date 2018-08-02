@@ -1,6 +1,6 @@
 {
-    minimum-stability: dev,
-    prefer-stable: true,
+    "minimum-stability": "dev",
+    "prefer-stable: true",
     "require": {
         "predis/predis": ">=4.0.0"
     }
