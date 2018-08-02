@@ -1,0 +1,17 @@
+{
+    "name": "botapi",
+    "type": "api",
+    "description": "Memory bot api",
+    "keywords": ["bot"],
+    "homepage": "",
+    "license": ""    
+    "authors": [
+        {
+            "name": "spica"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.9",
+        "predis/predis": "1.0.3"
+    }
+}
