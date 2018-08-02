@@ -5,7 +5,7 @@ if($json = json_decode(file_get_contents("php://input"), true)) {
 } else {
      $data = $_POST;
 }
-$intent = $data->queryResult->intent->displayName;
+echo $intent = $data->queryResult->intent->displayName;
 if($intent == "get"){
   $key = $data->queryResult->parameters->any;
   echo "{'fulfillmentText': 'You asked for $key'}";
