@@ -1,8 +1,7 @@
 <?php 
 $request = file_get_contents('php://input');
-var_dump($request);
-$key = $_POST['any'];
-$json = json_decode($key);
+$json = json_decode($request);
+$key = $json->queryResult->parameters->any;
 header('Content-type: application/json');
 ?>
 {
