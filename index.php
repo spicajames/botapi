@@ -4,6 +4,16 @@ $data = json_decode(file_get_contents("php://input"));
 $intent = $data->queryResult->intent->displayName;
 if($intent == "get"){
   $key = str_replace("'","''", $data->queryResult->parameters->any);
+  if($key == "list"){
+
+     $sql = "SELECT * FROM memory";
+    $result = pg_query($conn, $sql);
+    while ($row = pg_fetch_array($result)) {
+     $outcome .= str_replace("'","''", $row['word'])."->".str_replace("'","''", $row['meaning']).'</br>';     
+    }
+    echo "{'fulfillmentText': '$outcome'}";
+    
+  }else{
   
     $conn = pg_connect(getenv("DATABASE_URL"));
     $select = "SELECT * FROM memory WHERE WORD = '$key'";
@@ -18,7 +28,7 @@ if($intent == "get"){
       $found = addslashes($found);
       echo "{'fulfillmentText': '$found'}";
     }  
-  
+  }
   
 } else if($intent == "post"){  
   $key = str_replace("'","''", $data->queryResult->parameters->key);
@@ -47,14 +57,6 @@ if($intent == "get"){
   }else{
     echo "{'fulfillmentText': 'Something went wrong, I didn't got that!'}";
   }
-} else if($intent == "list"){
-  
-    $sql = "SELECT * FROM memory";
-    $result = pg_query($conn, $sql);
-    while ($row = pg_fetch_array($result)) {
-     $outcome .= str_replace("'","''", $row['word'])."->".str_replace("'","''", $row['meaning']).'</br>';     
-    }
-  echo "{'fulfillmentText': '$outcome'}";
-}else{
+} else{
   echo "{'fulfillmentText': 'I have no idea what your asking for'}";
 }
