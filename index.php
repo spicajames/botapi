@@ -4,6 +4,7 @@ $data = json_decode(file_get_contents("php://input"));
 $intent = $data->queryResult->intent->displayName;
 if($intent == "get"){
   $key = str_replace("'","''", $data->queryResult->parameters->any);
+  echo "{'fulfillmentText': '$key'}";
   if($key == "list"){
 
      $sql = "SELECT * FROM memory";
