@@ -14,7 +14,7 @@ if($intent == "get"){
   $select = "SELECT * FROM memory WHERE WORD = '$key'";
   $resultS = pg_query($conn,$select);
   $found = false;
-  while ($row = pg_fetch_array($result)) {
+  while ($row = pg_fetch_array($resultS)) {
     $found = $row['meaning'];
   }
   if($found === false){
@@ -23,7 +23,7 @@ if($intent == "get"){
      $sql = "UPDATE memory SET MEANING = '$val' WHERE WORD = '$key'";    
   }
   
-  $result = pg_query($conn,$sql); 
+ $result = pg_query($conn,$sql); 
  pg_free_result($result);
  pg_close($conn);
   echo "{'fulfillmentText': 'Got it!'}";
