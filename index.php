@@ -26,7 +26,7 @@ if($intent == "get"){
  $result = pg_query($conn,$sql); 
  pg_free_result($result);
  pg_close($conn);
-  echo "{'fulfillmentText': 'Got it!'}";
+  echo "{'fulfillmentText': 'Got it! ".pg_last_error()."'}";
 } else{
   echo "{'fulfillmentText': 'I have no idea what your asking for'}";
 }
