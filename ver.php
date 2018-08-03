@@ -20,5 +20,5 @@ while ($row = pg_fetch_array($result)) {
     var_dump($row);
 }
 
-//pg_free_result($result);
-//pg_close($conn);
+pg_free_result($result);
+pg_close($conn);
