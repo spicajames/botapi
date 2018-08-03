@@ -9,6 +9,7 @@ if($intent == "get"){
 
      $sql = "SELECT * FROM memory";
     $result = pg_query($conn, $sql);
+    $outcome = "List: </br>";
     while ($row = pg_fetch_array($result)) {
      $outcome .= str_replace("'","''", $row['word'])."->".str_replace("'","''", $row['meaning']).'</br>';     
     }
