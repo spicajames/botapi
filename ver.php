@@ -11,7 +11,7 @@ $conn = pg_connect(getenv("DATABASE_URL"));
 
 
 $sql = "SELECT * FROM memory";
-$result = pg_query($dbh, $sql);
+$result = pg_query($conn, $sql);
 if (!$result) {
    die("Error in SQL query: " . pg_last_error());
 }
@@ -21,4 +21,4 @@ while ($row = pg_fetch_array($result)) {
 }
 pg_free_result($result);
 
-pg_close($dbh);
+pg_close($conn);
