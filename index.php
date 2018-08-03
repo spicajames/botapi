@@ -11,18 +11,10 @@ if($intent == "get"){
   $val = $data->queryResult->parameters->any;
  
   $conn = pg_connect(getenv("DATABASE_URL"));
-  $insert = "INSERT INTO memory (WORD, MEANING) VALUES ($key, $val)";
+  $insert = "INSERT INTO memory (WORD, MEANING) VALUES ('$key', '$val')";
   $result = pg_query($conn,$insert); 
-  
-if (!$result) {
-   die("Error in SQL query: " . pg_last_error());
-}
-
-pg_free_result($result);
-pg_close($conn);
-  
-  
-  
+ pg_free_result($result);
+ pg_close($conn);
   echo "{'fulfillmentText': 'Got it!'}";
 } else{
   echo "{'fulfillmentText': 'I have no idea what your asking for'}";
