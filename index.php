@@ -29,7 +29,7 @@ if($intent == "get"){
  fwrite($handle, json_encode($data));
   fclose($handle);
   */
-  echo "{'fulfillmentText': 'Got it! $key'}";
+  echo "{'fulfillmentText': 'Got it! $key -> $val'}";
 } else{
   echo "{'fulfillmentText': 'I have no idea what your asking for'}";
 }
