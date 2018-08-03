@@ -9,8 +9,8 @@ $conn = pg_connect(getenv("DATABASE_URL"));
 //$insert = "update memory set meaning ='f' where word = 'bike'";
 //$insert = "delete from memory";
 $result = pg_query($conn,$insert);          
-//var_dump($result);
-//var_dump(pg_last_error());
+var_dump($result);
+var_dump(pg_last_error());
 
 
 
