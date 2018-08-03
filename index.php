@@ -11,7 +11,7 @@ if($intent == "get"){
     $result = pg_query($conn, $sql);
     $outcome = "List: </br>";
     while ($row = pg_fetch_array($result)) {
-     $outcome .= str_replace("'","''", $row['word'])."->".str_replace("'","''", $row['meaning']).'</br>';     
+     $outcome .= addslashes($row['word'])."->".addslashes($row['meaning']).'</br>';     
     }
     echo "{'fulfillmentText': '$outcome'}";
     
