@@ -1,11 +1,11 @@
 <?php 
 //$redis = new Predis\Client(getenv('REDIS_URL'));
-
-$my_file = 'file.txt';
+$dataIn = array();
+/*$my_file = 'file.txt';
 $handle = fopen($my_file, 'r');
 $dataIn = fread($handle,filesize($my_file));
 fclose($handle);
-
+*/
 //var_dump(json_decode($dataIn));
 
 header('Content-type: application/json');
