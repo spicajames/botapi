@@ -11,8 +11,18 @@ if($intent == "get"){
   $val = $data->queryResult->parameters->any;
  
   $conn = pg_connect(getenv("DATABASE_URL"));
-  $insert = "INSERT INTO memory (WORD, MEANING) VALUES ('$key', '$val')";
-  $result = pg_query($conn,$insert); 
+  $select = "SELECT * FROM memory WHERE WORD = '$key'";
+  $resultS = pg_query($conn,$select);
+  while ($row = pg_fetch_array($result)) {
+    $found = $row['meaning'];
+  }
+  if($row){
+    $sql = "UPDATE memory SET MEANING = '$val' WHERE WORD = '$key'";
+  }else{
+    $sql = "INSERT INTO memory (WORD, MEANING) VALUES ('$key', '$val')";
+  }
+  
+  $result = pg_query($conn,$sql); 
  pg_free_result($result);
  pg_close($conn);
   echo "{'fulfillmentText': 'Got it!'}";
