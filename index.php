@@ -47,6 +47,14 @@ if($intent == "get"){
   }else{
     echo "{'fulfillmentText': 'Something went wrong, I didn't got that!'}";
   }
-} else{
+} else if($intent == "list"){
+  
+    $sql = "SELECT * FROM memory";
+    $result = pg_query($conn, $sql);
+    while ($row = pg_fetch_array($result)) {
+     $outcome .= str_replace("'","''", $row['word'])."->".str_replace("'","''", $row['meaning']).'</br>';     
+    }
+  echo "{'fulfillmentText': '$outcome'}";
+}else{
   echo "{'fulfillmentText': 'I have no idea what your asking for'}";
 }
