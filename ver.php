@@ -8,10 +8,10 @@ $conn = pg_connect(getenv("DATABASE_URL"));
 //$rules = str_replace("'","''", $rules); 
 //$insert = "INSERT INTO memory (WORD, MEANING) VALUES ('rules', '$rules')";
 //$insert = "update memory set meaning ='f' where word = 'bike'";
-$insert = "delete from memory";
-$result = pg_query($conn,$insert);          
-var_dump($result);
-var_dump(pg_last_error());
+//$insert = "delete from memory";
+//$result = pg_query($conn,$insert);          
+//var_dump($result);
+//var_dump(pg_last_error());
 
 
 
