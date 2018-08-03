@@ -1,4 +1,7 @@
 <?php 
+
+$conn = pg_connect(getenv("DATABASE_URL"));
+
 $my_file = 'file.txt';
 $handle = fopen($my_file, 'r');
 $dataIn = fread($handle,filesize($my_file));
