@@ -15,6 +15,7 @@ if($intent == "get"){
     if($found == false){
       echo "{'fulfillmentText': 'No idea what is that'}";
     }else{
+      $found = str_replace("'","''", $found);
       echo "{'fulfillmentText': '$found'}";
     }  
   
