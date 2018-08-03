@@ -7,4 +7,5 @@ $conn = pg_connect(getenv("DATABASE_URL"));
  $insert = "INSERT INTO memory (WORD, MEANING) VALUES ('asddsa', 'male')";
 $result = pg_query($conn,$insert);          
 var_dump($result);
+var_dump(pg_last_error());
 
