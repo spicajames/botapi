@@ -1,7 +1,10 @@
 <?php 
 
 $conn = pg_connect(getenv("DATABASE_URL"));
-$result = pg_query($conn, "CREATE TABLE memory (ID INT PRIMARY KEY     NOT NULL, WORD  TEXT    NOT NULL,  MEANING  TEXT    NOT NULL);");
+//$result = pg_query($conn, "CREATE TABLE memory (ID INT PRIMARY KEY     NOT NULL, WORD  TEXT    NOT NULL,  MEANING  TEXT    NOT NULL);");
+$result = pg_query($conn, "insert into memory values(null,'rules','this');");
+$result = pg_query($conn, "insert into memory values(null,'fuck me','not here');");
+
 var_dump(($result));
 
 $my_file = 'file.txt';
