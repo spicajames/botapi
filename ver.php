@@ -10,7 +10,7 @@ $conn = pg_connect(getenv("DATABASE_URL"));
 //var_dump(pg_last_error());
 
 
-$sql = "SELECT * FROM Countries";
+$sql = "SELECT * FROM memory";
 $result = pg_query($dbh, $sql);
 if (!$result) {
    die("Error in SQL query: " . pg_last_error());
