@@ -10,14 +10,13 @@ $conn = pg_connect(getenv("DATABASE_URL"));
 //var_dump(pg_last_error());
 
 
-$sql = "SELECT * FROM memory where WORD='dum'";
+$sql = "SELECT * FROM memory";
 $result = pg_query($conn, $sql);
 if (!$result) {
    die("Error in SQL query: " . pg_last_error());
 }
 
 while ($row = pg_fetch_array($result)) {
-
  var_dump($row['meaning']);
 }
 var_dump($row);
