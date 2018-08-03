@@ -14,7 +14,7 @@ if($intent == "get"){
      $outcome .= addslashes($row['word'])."->".addslashes($row['meaning']).'\n';     
     }
     
-    echo "{'fulfillmentText': '".urlencode($outcome)."'}";
+    echo "{'fulfillmentText': '$outcome'}";
     
   }else{
   
