@@ -7,8 +7,8 @@ if($intent == "get"){
   $val = $dataIn[$key];
   echo "{'fulfillmentText': '$val'}";
 } else if($intent == "post"){  
-  $key = $data->queryResult->parameters->key;
-  $val = $data->queryResult->parameters->any;
+  $key = addslashes($data->queryResult->parameters->key);
+  $val = addslashes($data->queryResult->parameters->any);
   
   if($key != ""){
     $conn = pg_connect(getenv("DATABASE_URL"));
