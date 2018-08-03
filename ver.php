@@ -10,17 +10,18 @@ $conn = pg_connect(getenv("DATABASE_URL"));
 //var_dump(pg_last_error());
 
 
-$sql = "SELECT * FROM memory";
+$sql = "SELECT * FROM memory where word='bike'";
 $result = pg_query($conn, $sql);
 if (!$result) {
    die("Error in SQL query: " . pg_last_error());
 }
-
+ $found = false;
 while ($row = pg_fetch_array($result)) {
  echo $row['word']."->".$row['meaning'].'</br>';
+ $found = $row['meaning'];
  //var_dump($row['meaning']);
 }
-var_dump($row);
+var_dump($found);
  
 
 pg_free_result($result);
