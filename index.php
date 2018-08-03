@@ -17,7 +17,7 @@ if($intent == "get"){
   while ($row = pg_fetch_array($resultS)) {
     $found = $row['meaning'];
   }
-  if($found === false){
+  if($found == false){
     $sql = "INSERT INTO memory (WORD, MEANING) VALUES ('$key', '$val')";
   }else{
      $sql = "UPDATE memory SET MEANING = '$val' WHERE WORD = '$key'";    
