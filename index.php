@@ -36,7 +36,7 @@ if($intent == "get"){
   $key = str_replace("'","''", $data->queryResult->parameters->key);
   $val =  str_replace("'","''", $data->queryResult->parameters->any);
   
-  if($key != ""){
+  if($key != "" && $val != ""){
     $conn = pg_connect(getenv("DATABASE_URL"));
     $select = "SELECT * FROM memory WHERE WORD = '$key'";
     $resultS = pg_query($conn,$select);
