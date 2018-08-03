@@ -5,7 +5,7 @@ $intent = $data->queryResult->intent->displayName;
 if($intent == "get"){
   $key = str_replace("'","''", $data->queryResult->parameters->any);
   
-  if($key == "list"){
+  if(strtolower($key) == "list"){
     $conn = pg_connect(getenv("DATABASE_URL"));
     $sql = "SELECT * FROM memory";
     $result = pg_query($conn, $sql);
