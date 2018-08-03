@@ -18,7 +18,7 @@ if($intent == "get"){
 } else if($intent == "post"){
   $key = $data->queryResult->parameters->key;
   $val = $data->queryResult->parameters->any;
-  
+  /*
   $data[$key] = $val;
 
   $data = array_merge ($dataIn,$data);
@@ -28,8 +28,8 @@ if($intent == "get"){
 
  fwrite($handle, json_encode($data));
   fclose($handle);
-  
-  echo "{'fulfillmentText': 'Got it!'}";
+  */
+  echo "{'fulfillmentText': 'Got it! $key'}";
 } else{
   echo "{'fulfillmentText': 'I have no idea what your asking for'}";
 }
