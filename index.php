@@ -3,9 +3,22 @@ header('Content-type: application/json');
 $data = json_decode(file_get_contents("php://input"));
 $intent = $data->queryResult->intent->displayName;
 if($intent == "get"){
-  $key = $data->queryResult->parameters->any;
-  $val = $dataIn[$key];
-  echo "{'fulfillmentText': '$val'}";
+  $key = str_replace("'","''", $data->queryResult->parameters->any);
+  
+    $conn = pg_connect(getenv("DATABASE_URL"));
+    $select = "SELECT * FROM memory WHERE WORD = '$key'";
+    $resultS = pg_query($conn,$select);
+    $found = false;
+    while ($row = pg_fetch_array($resultS)) {
+      $found = $row['meaning'];
+    }
+    if($found == false){
+      echo "{'fulfillmentText': 'No idea what is that'}";
+    }else{
+      echo "{'fulfillmentText': '$found'}";
+    }  
+  
+  
 } else if($intent == "post"){  
   $key = str_replace("'","''", $data->queryResult->parameters->key);
   $val =  str_replace("'","''", $data->queryResult->parameters->any);
