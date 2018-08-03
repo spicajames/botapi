@@ -17,9 +17,10 @@ if (!$result) {
 }
 
 while ($row = pg_fetch_array($result)) {
-    var_dump($row['meaning']);
-}
 
+ var_dump($row['meaning']);
+}
+var_dump($row);
  
 
 pg_free_result($result);
