@@ -17,7 +17,7 @@ if (!$result) {
 }
 
 while ($row = pg_fetch_array($result)) {
- echo $row['word']."->".$row['meaning'];
+ echo $row['word']."->".$row['meaning'].'</br>';
  //var_dump($row['meaning']);
 }
 var_dump($row);
