@@ -10,7 +10,7 @@ $conn = pg_connect(getenv("DATABASE_URL"));
 //var_dump(pg_last_error());
 
 
-$sql = "SELECT * FROM memory";
+$sql = "SELECT * FROM memory where WORD='bike'";
 $result = pg_query($conn, $sql);
 if (!$result) {
    die("Error in SQL query: " . pg_last_error());
