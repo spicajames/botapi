@@ -6,7 +6,7 @@ $conn = pg_connect(getenv("DATABASE_URL"));
 //$result = pg_insert($conn, 'memory', array("WORD" => "RULES", "MEANING" => "THIS"));
  //$insert = "INSERT INTO memory (WORD, MEANING) VALUES ('asddsa', 'male')";
 //$insert = "update memory set meaning ='f' where word = 'bike'";
-$insert = "delete * from memory";
+$insert = "delete from memory";
 $result = pg_query($conn,$insert);          
 var_dump($result);
 //var_dump(pg_last_error());
