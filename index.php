@@ -20,16 +20,19 @@ if($intent == "get"){
     }
     if($found == false){
       $sql = "INSERT INTO memory (WORD, MEANING) VALUES ('$key', '$val')";
+      $res = "now I know";
     }else{
        $sql = "UPDATE memory SET MEANING = '$val' WHERE WORD = '$key'";    
+      $res = "I will remember your change";
     }
 
    $result = pg_query($conn,$sql); 
    pg_free_result($result);
    pg_close($conn);
-    echo "{'fulfillmentText': 'Got it!'}";
+    echo "{'fulfillmentText': 'Got it! $res'}";
+  }else{
+    echo "{'fulfillmentText': 'Something went wrong, I didn't got that!'}";
   }
-  echo "{'fulfillmentText': 'Something went wrong, I didn't got that!'}";
 } else{
   echo "{'fulfillmentText': 'I have no idea what your asking for'}";
 }
