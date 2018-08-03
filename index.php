@@ -4,6 +4,7 @@
 $my_file = 'file.txt';
 $handle = fopen($my_file, 'r');
 $dataIn = fread($handle,filesize($my_file));
+fclose($handle);
 
 //var_dump(json_decode($dataIn));
 
@@ -26,6 +27,7 @@ if($intent == "get"){
  $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file);
 
  fwrite($handle, json_encode($data));
+  fclose($handle);
   
   echo "{'fulfillmentText': 'Got it!'}";
 } else{
