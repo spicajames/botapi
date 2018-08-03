@@ -4,10 +4,10 @@ $data = json_decode(file_get_contents("php://input"));
 $intent = $data->queryResult->intent->displayName;
 if($intent == "get"){
   $key = str_replace("'","''", $data->queryResult->parameters->any);
-  echo "{'fulfillmentText': '$key'}";
+  
   if($key == "list"){
-
-     $sql = "SELECT * FROM memory";
+    $conn = pg_connect(getenv("DATABASE_URL"));
+    $sql = "SELECT * FROM memory";
     $result = pg_query($conn, $sql);
     $outcome = "List: </br>";
     while ($row = pg_fetch_array($result)) {
