@@ -18,18 +18,18 @@ if($intent == "get"){
 } else if($intent == "post"){
   $key = $data->queryResult->parameters->key;
   $val = $data->queryResult->parameters->any;
-  /*
+ 
   $data[$key] = $val;
 
   $data = array_merge ($dataIn,$data);
-  
+   /*
  $my_file = 'file.txt';
  $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file);
 
  fwrite($handle, json_encode($data));
   fclose($handle);
   */
-  echo "{'fulfillmentText': 'Got it! $key -> $val'}";
+  echo "{'fulfillmentText': 'Got it! ".print_r($data)."'}";
 } else{
   echo "{'fulfillmentText': 'I have no idea what your asking for'}";
 }
