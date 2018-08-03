@@ -3,8 +3,15 @@
 
 $my_file = 'file.txt';
 $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file);
-$data = 'This is the data';
-fwrite($handle, $data);
+$data['prueba'] = 'ajaja';
+//$data = 'This is the data';
+fwrite($handle, json_encode($data));
+
+$my_file = 'file.txt';
+$handle = fopen($my_file, 'r');
+$dataIn = fread($handle,filesize($my_file));
+
+var_dump(json_decode($dataIn));
 
 header('Content-type: application/json');
 $data = json_decode(file_get_contents("php://input"));
