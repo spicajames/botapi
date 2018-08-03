@@ -9,11 +9,12 @@ if($intent == "get"){
     $conn = pg_connect(getenv("DATABASE_URL"));
     $sql = "SELECT * FROM memory";
     $result = pg_query($conn, $sql);
-    $outcome = "List: </br>";
+    $outcome = "List:\n";
     while ($row = pg_fetch_array($result)) {
-     $outcome .= addslashes($row['word'])."->".addslashes($row['meaning']).'</br>';     
+     $outcome .= addslashes($row['word'])."->".addslashes($row['meaning']).'\n';     
     }
-    echo "{'fulfillmentText': '$outcome'}";
+    
+    echo "{'fulfillmentText': '".urlencode($outcome)."'}";
     
   }else{
   
